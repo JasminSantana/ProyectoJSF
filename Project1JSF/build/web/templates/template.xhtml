@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{str.formHeader}</title>
+        <f:event listener="#{plantillaBean.checkLogin()}" type="preRenderView"></f:event>
+    </h:head>
+    <h:body>
+        <div id="pagina"> 
+            <div id="header">
+                <h1>#{str.systemTitle}</h1>            
+            </div>
+            <div id="menu">
+                <h:form>
+                    <p:menubar>
+                        <p:menuitem value="Inicio" action="Inicio" ></p:menuitem>
+                        <p:menuitem value="Usuarios" action="#{usuarioBean.listar()}" ></p:menuitem>
+                        <p:menuitem value="Modulos" action="#{moduloBean.listar()}" ></p:menuitem>
+                        <p:menuitem value="Roles" action="#{rolBean.listar()}" ></p:menuitem>
+                        <p:menuitem value="Jefes" action="#{jefeBean.listar()}" ></p:menuitem>
+                        <p:menuitem value="Empresas" action="#{empresaBean.listar()}" ></p:menuitem>
+                        <p:menuitem value="Permisos" ></p:menuitem>                     
+                    </p:menubar>
+                </h:form>
+            </div>
+            <div id="contenido">
+                <ui:insert name="contenido">
+                    <h2>#{str.systemWelcome}</h2>
+                </ui:insert>
+            </div>
+            <div id="pie">
+                <p><strong>#{str.developer}</strong>
+                    #{str.myName}</p>
+            </div>
+        </div>
+    </h:body>
+</html>

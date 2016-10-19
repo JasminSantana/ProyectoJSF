@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{str.bossListTitle}</title>
+     
+    </h:head>
+    <h:body>
+         <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h1>#{str.bossListTitle}</h1>
+                <h:form>
+                    <p:commandButton value="#{str.buttonAdd}"   
+                                     action="#{jefeBean.iniciar()}"></p:commandButton>
+                </h:form>
+                <p:dataTable value="#{jefeBean.jefes}" var="j">
+                    <p:column headerText="#{str.action}">
+                        <h:form>
+                            <p:commandButton value="#{str.buttonEdit}" 
+                                             action="#{jefeBean.editar(j)}"></p:commandButton>
+                        </h:form>
+                    </p:column>
+                    <p:column headerText="#{str.bossNameHeader}">
+                        <p:outputLabel value="#{j.nombreJefe}"></p:outputLabel>                        
+                    </p:column>
+                    <p:column headerText="#{str.lastnameHeader}">
+                        <p:outputLabel value="#{j.apellidos}"></p:outputLabel>                        
+                    </p:column>
+                    <p:column headerText="#{str.phoneHeader}">
+                        <p:outputLabel value="#{j.telefono}"></p:outputLabel>                        
+                    </p:column>
+                    <p:column headerText="#{str.addressHeader}">
+                        <p:outputLabel value="#{j.direccion}"></p:outputLabel>                        
+                    </p:column>
+                </p:dataTable>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{str.companyListTitle}</title>
+     
+    </h:head>
+    <h:body>
+         <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h1>#{str.companyListTitle}</h1>
+                <h:form>
+                    <p:commandButton value="#{str.buttonAdd}"   
+                                     action="#{empresaBean.iniciar()}"></p:commandButton>
+                </h:form>
+                <p:dataTable value="#{empresaBean.empresas}" var="e">
+                    <p:column headerText="#{str.action}">
+                        <h:form>
+                            <p:commandButton value="#{str.buttonEdit}" 
+                                             action="#{empresaBean.editar(e)}"></p:commandButton>
+                        </h:form>
+                    </p:column>
+                    <p:column headerText="#{str.companyNameHeader}">
+                        <p:outputLabel value="#{e.nombreEmpresa}"></p:outputLabel>                        
+                    </p:column>
+                    <p:column headerText="#{str.colonyHeader}">
+                        <p:outputLabel value="#{e.colonia}"></p:outputLabel>                        
+                    </p:column>
+                    <p:column headerText="#{str.phoneHeader}">
+                        <p:outputLabel value="#{e.telefono}"></p:outputLabel>                        
+                    </p:column>
+                    <p:column headerText="#{str.rfcHeader}">
+                        <p:outputLabel value="#{e.rfc}"></p:outputLabel>                        
+                    </p:column>
+                    <p:column headerText="#{str.bossNameHeader}">
+                        <p:outputLabel value="#{e.jefe.nombreJefe}"></p:outputLabel>                        
+                    </p:column>
+                    
+                    <p:column headerText="#{str.rolNameHeader}">
+                        <p:outputLabel value="#{e.rol.nombre}"></p:outputLabel>                        
+                    </p:column>
+                    
+                </p:dataTable>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      <h:head>
+        <title>#{str.loginTitle}</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="usuario" value="#{str.loginUser}" ></h:outputLabel>
+                <h:inputText value="#{usuarioBean.usuario.nombreUsuario}"  id="usuario" ></h:inputText>
+                <h:outputLabel for="contrasenia"  value="#{str.loginPassword}"></h:outputLabel>
+                <h:inputSecret value="#{usuarioBean.usuario.contrasenia}" id="contrasenia" ></h:inputSecret>
+                <h:commandButton action="#{usuarioBean.login()}" value="#{str.loginButton}" ></h:commandButton>
+            </h:panelGrid>
+        </h:form>     
+    </h:body>
+</html>
